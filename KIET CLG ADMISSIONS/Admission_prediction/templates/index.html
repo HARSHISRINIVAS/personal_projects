@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <style>
+      body {
+         background-image: url('https://scontent.fhyd1-4.fna.fbcdn.net/v/t1.6435-9/33610123_1704758766275424_756877042619777024_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=5f2048&_nc_ohc=VUu8v29n25kAX_vTv62&_nc_ht=scontent.fhyd1-4.fna&oh=00_AfDDr5gSHDPmzq6J75nolKLrWtwpUiNVJNacFncsE4249Q&oe=661E1DC6');
+         background-size: cover;
+      }
+
+      .page-wrapper {
+         padding: 100px;
+         font-family: 'Roboto', sans-serif;
+         position: relative;
+      }
+
+      .small-box {
+         position: absolute;
+         top: 10px;
+         right: 10px;
+         width: 50px;
+         height: 50px;
+         background-color: #ffffff;
+      }
+
+      .card {
+         background-color: #fff;
+         border-radius: 10px;
+         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+         overflow: hidden;
+      }
+
+      .card-body {
+         padding: 40px;
+      }
+
+      .title {
+         color: #333;
+         font-size: 24px;
+         margin-bottom: 30px;
+      }
+
+      .input-group {
+         margin-bottom: 20px;
+         display: flex;
+      }
+
+      .input-group select,
+      .input-group input {
+         flex: 1;
+         padding: 10px;
+         border-radius: 5px;
+         border: 1px solid #ccc;
+         margin-right: 10px;
+      }
+
+      .btn {
+         padding: 10px 20px;
+         border: none;
+         border-radius: 5px;
+         cursor: pointer;
+         color: #fff;
+         background-color: #4CAF50;
+         transition: background-color 0.3s;
+      }
+
+      .btn:hover {
+         background-color: #45a049;
+      }
+   </style>
+</head>
+
+
+<body>
+   <div class="page-wrapper">
+      <div class="small-box"></div>
+      <div class="wrapper wrapper--w680">
+         <div class="card card-1">
+            <div class="card-heading"></div>
+            <div class="card-body">
+               <h2 class="title">Admission prediction of KIET</h2>
+               <form action="{{ url_for('predict')}}" method="POST">
+                  <div class="input-group">
+                     <select name="DISTRICT">
+                        <option disabled="disabled" selected="selected">DISTRICT</option>
+                        <option value="Anakapalli">Anakapalli</option>
+                        <option value="Anantapur">Anantapur</option>
+                        <option value="Annamayya">Annamayya</option>
+                        <option value="Bapatla">Bapatla</option>
+                        <option value="Chittoor">Chittoor</option>
+                        <option value="Dr. B. R. Ambedkar Konaseema">Dr. B. R. Ambedkar Konaseema</option>
+                        <option value="East Godavari">East Godavari</option>
+                        <option value="Eluru">Eluru</option>
+                        <option value="Guntur">Guntur</option>
+                        <option value="Kakinada">Kakinada</option>
+                        <option value="Krishna">Krishna</option>
+                        <option value="Kurnool">Kurnool</option>
+                        <option value="Nandyala">Nandyala</option>
+                        <option value="NTR District">NTR District</option>
+                        <option value="Palnadu">Palnadu</option>
+                        <option value="Parvathipuram Manyam">Parvathipuram Manyam</option>
+                        <option value="Prakasam">Prakasam</option>
+                        <option value="SPS Nellore">SPS Nellore</option>
+                        <option value="Sri Sathya Sai">Sri Sathya Sai</option>
+                        <option value="Srikakulam">Srikakulam</option>
+                        <option value="Tirupati">Tirupati</option>
+                        <option value="Visakhapatnam">Visakhapatnam</option>
+                        <option value="Vizianagaram">Vizianagaram</option>
+                        <option value="West Godavaria">West Godavari</option>
+                        <option value="YSR Kadapa">YSR Kadapa</option>
+                     </select>
+
+                     <select name="COLLEGE">
+                        <option disabled="disabled" selected="selected">COLLEGE</option>
+                        <option value="KIET">KIET</option>
+                        <option value="KIEK">KIEK</option>
+                        <option value="KIEW">KIEW</option>
+                     </select>
+
+                     <select name="CATEGORY">
+                        <option disabled="disabled" selected="selected">CATEGORY</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                     </select>
+
+                     <input type="text" placeholder="Enter a YEAR" name="YEAR">
+
+                     <button class="btn btn--radius btn--green" type="submit">Submit</button>
+                  </div>
+               </form>
+               {{Predict_score}}
+            </div>
+         </div>
+      </div>
+   </div>
+</body><!-- This templates was made by Colorlib (https://colorlib.com
